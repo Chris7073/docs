@@ -1,0 +1,80 @@
+---
+title: Astro
+description: 'Learn how to track your first visit & event using Astro.'
+---
+
+## Pre-Requisites
+
+Before proceeding, ensure you:
+<Steps>
+  <Step title="Have installed Astro">
+    Get started [here](https://astro.build/)
+  </Step>
+  <Step title="Get your project ID">
+    Sign up on [Litlyx Dashboard](https://dashboard.litlyx.com/) and create a new project.
+  </Step>
+</Steps>
+
+## 1. Install
+
+Choose your package manager & install the library.
+
+<CodeGroup>
+```bash npm
+npm install litlyx-js
+```
+```bash yarn
+yarn add litlyx-js
+```
+```bash pnpm
+pnpm add litlyx-js
+```
+```bash bun
+bun install litlyx-js
+```
+</CodeGroup>
+
+
+## 2. Import
+Now import litlyx in your `entry-point` file. Normally in Nuxt, it is called `main.vue`.
+
+```javascript javascript
+import { Lit } from "litlyx-js"
+```
+
+## 3. Initialize
+
+Next, initialize Litlyx library with your project in your entry-point file as follow:
+
+```javascript javascript
+Lit.init("your_project_id");
+```
+
+This line of code will immediately start collecting web analytics such as: `Page Visits`, `Real-Time Users`, `Referrers`, `Bounce Rate`, `Countries`, `Unique Visitor Sessions`, `OS` & `Devices`.
+
+
+## 4. Collect Custom Events
+To customize your experience, add the following line in each function you desire. There is no limit to the number of events.
+
+```javascript javascript
+Lit.event("your_event_name");
+```
+
+If you want to have more control over your events, you can use the `metadata` field.
+
+```javascript javascript
+Lit.event("your_event_name", metadata: { 
+  'type': 'MAIN_CTA', 
+  'priority': 0.9
+});
+```
+
+In your dashboard, you can group them in the `Events` tab with the `Event Metadata Analyzer`.
+
+## 5. Your turn now!
+
+Use our minimal setup to learn how Litlyx works!
+
+<Card title="Start from Template" icon="code" href="https://github.com/Litlyx/litlyx-nuxt-example">
+  Minimal setup to start using Litlyx in seconds with Nuxt.
+</Card>
